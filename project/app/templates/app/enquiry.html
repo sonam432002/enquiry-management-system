@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: black;
+    }
+    input{
+      margin-top: 10px;
+      width: 300px;
+      height: 40px;
+      text-align: center;
+      margin-left: 40px;
+      font-size: 18px;
+      border-radius: 10px;
+    }
+    td{
+      color: white;
+      font-size: 20px;
+    }
+    p{
+      text-align: center;
+      color: white;
+      font-size: 40px;
+      text-decoration: underline;
+      font-family: 'Times New Roman', Times, serif;
+      margin-left: 60px;
+    }
+    button{
+      width: 150px;
+      height: 50px;
+      font-size: 20px;
+      border-radius: 8px;
+      margin-left:130px;
+      margin-top: 20px;
+    }
+    form{
+      background: linear-gradient(rgb(105, 58, 167),white);
+      height: 500px;
+      width: 900px;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <p>Enquery Form :</p>
+  <form action="{% url 'insertquery'%}" method="POST" novalidate>
+    {% csrf_token %}
+    <table>
+      <tbody style="font-size: x-large; text-align: center;">
+        <tr>
+          <td>StudentName:</td>
+          <td><input type="text" name="name" value="{{data.name}}"></td>
+        </tr>
+        <tr>
+          <td>lastname:</td>
+          <td><input type="text" name="lname" value="{{data.lname}}"></td>
+        </tr>
+        <tr>
+          <td>Contact:</td>
+          <td><input type="tel" name="contact" value="{{data.contact}}"></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><input type="email" name="email" value="{{data.email}}"></td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td><input type="text" name="password" value="{{data.password}}"></td>
+        </tr>
+        <tr>
+          <td>ID</td>
+          <td><input type="hidden" name="id" value="{{data.id}}"></td>
+        </tr>
+
+        <tr>
+          <td>Enquiry:</td>
+          <td><input type="text" name="enquiry" value=""></td>
+        </tr>
+       
+          <!-- <td><input type="submit" name="" value="submit"></td> -->
+      </tbody>
+    </table>
+    <center><Button>Submit</Button></center>
+  </form>
+</center>
+</body>
+
+</html>

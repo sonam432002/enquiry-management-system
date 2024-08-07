@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/enquiry.css' %}">
+</head>
+
+<body
+    style="background-image: url('{% static 'images/admin.png' %}'); background-repeat: no-repeat; background-size: cover;">
+    <p class="p">Admin Dashboard</p><br>
+    <center>
+        <label style="color: white;">name:{{data.name}},</label>
+        <label style="color:white">Email:{{data.email}},</label>
+        <label style="color:white">Contact: {{data.contact}},</label>
+        <label style="color:white"> password: {{data.password}},</label>
+    </center>
+
+
+
+
+
+    <div class="box">
+        <form action="{% url 'adminlogout' %}" method="POST">
+            {% csrf_token %}
+            <center><button class="Adlog-btn">Logout</button></center>
+
+        </form>
+        <form action="{% url 'AdminQuery' %}" method="POST">
+            {% csrf_token %}
+            <center><button class="Adlog-btn">Show All Query</button></center>
+
+        </form>
+    </div>
+</body>
+
+</html>

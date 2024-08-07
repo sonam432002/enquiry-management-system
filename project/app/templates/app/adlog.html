@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/enquiry.css' %}">
+    
+</head>
+<body>
+<div class="login-div" style="background-image: url('{% static 'images/img3.png' %}');">
+    <center><h3 class="login-h3">Login Form</h3></center><br><br>
+    <div class="login-form">
+        
+        <form action="{% url 'AdminLogin' %}" method="POST">
+            <center><h3 style="color: red; font-size: 15px;">{{msg}}</h3></center>
+            <br><br>
+            {% csrf_token %}
+            <center><label>Email:</label><br></center>
+            <center><input type="email" name="email"><br><br><br></center>
+            <center><label>Password:</label><br></center>
+            <center><input type="text" name="password"><br></center>
+            <!-- <input type="submit" value="SIGNIN"><br> -->
+            <center><button>Submit</button></center>
+        </form>
+        
+    </div>
+    <p>Don't have an acount <a href="{% url 'adreg' %}" style="color: white;">Register</a></p> 
+</div>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/enquiry.css' %}">
+</head>
+
+<body>
+    <div class="reg-div" style="background-image: url('{% static 'images/reg.png' %}');">
+        <center>
+            <p>Student Registration </p>
+        </center>
+        <h3 style="color: red; font-size: 25px; margin-top: -20px; margin-left: 20px;">{{msg}}</h3>
+        <h2>Alreday have an account <a href="{% url 'login'%}">Login</a></h2>
+        <div class="reg-form">
+            <form action="{% url 'UserRegister' %}" method="POST">
+                {% csrf_token %}
+                <center><label> Name:</label><br></center>
+                <input type="text" name="name"><br><br>
+                <center><label>Lastname:</label><br></center>
+                <input type="text" name="lname"><br><br>
+                <center><label>Email</label><br></center>
+                <input type="email" name="email"><br><br>
+                <center> <label>Contact</label><br></center>
+                <input type="tel" name="contact"><br><br>
+                <center><label>Password</label><br></center>
+                <input type="text" name="password"><br><br>
+                <center> <label>Confirm Password:</label><br></center>
+                <input type="text" name="cpass"><br><br>
+                <!-- <input type="submit" value="SIGNUP"> -->
+                <center><button>submit</button></center>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

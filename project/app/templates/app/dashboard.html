@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/enquiry.css' %}">
+</head>
+
+<body style="background-image: url('{% static 'images/dashboardimage.gif' %}');background-repeat: no-repeat; background-size: cover;">
+    <center>
+       <h1 style="color: white;"> Name: {{data.name}}</h1>
+       <!-- <h1>Lname:{{data.lname}}</h1>
+       <h1>Email:{{data.email}}</h1>
+       <h1>contact:{{data.contact}}</h1>
+        <h1>ID:{{con.id}}</h1> -->
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <p id="dashboard-heading">WELCOME TO DASHBOARD</p>
+            <table>
+                <tr><br><br><br>
+                    <td>
+                        <!-- <input type="submit" name="logout" id="Logout" value="logout"> -->
+                        <button id="logout">Logout</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <h1 id="dash-h1">{{data.name}} Fill Enquiry Form</h1>
+    <form action="{% url 'userquery'%}" method="post">
+        {% csrf_token %}
+        <tr>
+            <td>
+                <input type="hidden" value="{{data.name}}" name="name">
+                <input type="hidden" value="{{data.lname}}" name="lname">
+                <input type="hidden" value="{{data.email}}" name="email">
+                <input type="hidden" value="{{data.contact}}" name="contact">
+                <input type="hidden" value="{{data.password}}" name="password">
+                <input type="hidden" value="{{con.id}}" name="id">
+                <!-- <input type="submit" value="Click For Enquiry!!!"> -->
+                <button id="dash-btn2">Click For Enquiry</button>
+            </td>
+        </tr>
+
+    </form>
+    <h1 style="color:white; margin-top: 80px; text-decoration: underline;">Show Enquiry:</h1>
+    <form action="{% url 'showquery' %}" method="post">
+        {% csrf_token %}
+
+        <tr>
+            <td>
+                <input type="hidden" value="{{data.name}}" name="name">
+                <input type="hidden" value="{{data.lname}}" name="lname">
+                <input type="hidden" value="{{data.email}}" name="email">
+                <input type="hidden" value="{{data.contact}}" name="contact">
+                <!-- <input type="hidden" value="{{Data.enquiry}}" name="enquiry"> -->
+                <input type="hidden" value="{{data.password}}" name="password">
+                <!-- <input type="hidden" value="{{Data.id}}" name="id"> -->
+                <button id="dash-btn3">Click to Show Enquiry </button>
+                
+            </td>
+        </tr>
+
+    </form>
+ 
+    <!-- name:{{Data.name}}
+    lname:{{Data.lname}}
+    email:{{Data.email}}
+    contact:{{Data.contact}}
+    enquiry:{{Data.enquiry}} -->
+    
+</body>
+</center>
+</html>

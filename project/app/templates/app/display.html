@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/enquiry.css' %}">
+</head>
+
+<body style="background-image: url('{% static 'images/img4.png' %}');">
+    <center><p>Student Enquiry Management system</p></center>
+    <div class="div">
+           <div class="div1">
+            <p>User Login</p>
+            <button><a href="{% url 'login'%}">Login</a><br></button>
+            <button><a href="{% url 'register'%}">Register</a></button>
+           </div>
+           <div class="div2">
+            <p>Admin Login</p>
+            <button><a href="{% url 'adlog' %}">Login</a><br></button>
+            <button><a href="{% url 'adreg' %}">Register</a></button>
+           </div>
+    </div>
+</body>
+</html>
